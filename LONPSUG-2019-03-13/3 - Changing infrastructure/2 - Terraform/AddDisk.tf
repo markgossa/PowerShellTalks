@@ -66,7 +66,7 @@ resource "azurerm_network_interface" "networkInterface1" {
 }
 
 # Create VM
-resource "azurerm_virtual_machine" "main" {
+resource "azurerm_virtual_machine" "vm1" {
   name                  = "vm0001"
   location              = "${azurerm_resource_group.resourceGroup1.location}"
   resource_group_name   = "${azurerm_resource_group.resourceGroup1.name}"
@@ -96,4 +96,21 @@ resource "azurerm_virtual_machine" "main" {
     admin_username = "MyUserName" # Enter your username in here
     admin_password = "MyPassword1" # Enter your password in here
   }
+}
+
+# Create a new disk
+resource "azurerm_managed_disk" "dataDisk1" {
+  name                 = "vm0001-disk2"
+  location             = "WestEurope"
+  resource_group_name  = "RG-LONPSUG1"
+  storage_account_type = "Standard_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = 20
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "attachDataDisk1" {
+  managed_disk_id    = "${azurerm_managed_disk.dataDisk1.id}"
+  virtual_machine_id = "${azurerm_virtual_machine.vm1.id}"
+  lun                = "10"
+  caching            = "ReadWrite"
 }
