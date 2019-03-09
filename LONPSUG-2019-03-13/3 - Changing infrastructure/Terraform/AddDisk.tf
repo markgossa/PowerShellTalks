@@ -101,8 +101,8 @@ resource "azurerm_virtual_machine" "vm1" {
 # Create a new disk
 resource "azurerm_managed_disk" "dataDisk1" {
   name                 = "vm0001-disk2"
-  location             = "WestEurope"
-  resource_group_name  = "RG-LONPSUG1"
+  location             = "${azurerm_resource_group.resourceGroup1.location}"
+  resource_group_name  = "${azurerm_resource_group.resourceGroup1.name}"
   storage_account_type = "Standard_LRS"
   create_option        = "Empty"
   disk_size_gb         = 20
