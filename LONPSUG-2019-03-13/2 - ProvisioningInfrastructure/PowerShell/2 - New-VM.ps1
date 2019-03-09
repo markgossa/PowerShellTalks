@@ -1,6 +1,6 @@
 New-AzResourceGroup -Name RG-LONPSUG1 -Location UKSouth
 
-$cred = Get-Credential -UserName azureadmin -Message "Entere your password"
+$cred = Get-Credential -UserName azureadmin -Message "Enter your password"
 
 New-AzVm `
     -ResourceGroupName "RG-LONPSUG1" `
