@@ -11,5 +11,4 @@ New-AzVm `
     -SecurityGroupName "myNetworkSecurityGroup" `
     -PublicIpAddressName "myPublicIpAddress" `
     -OpenPorts 80,3389 `
-    -Credential $cred `
-    -RunAsync
+    -Credential $cred

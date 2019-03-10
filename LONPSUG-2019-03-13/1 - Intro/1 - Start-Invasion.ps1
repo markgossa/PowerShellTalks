@@ -1,4 +1,4 @@
-function Start-StrikeBack 
+function Start-Invasion 
 {
     [console]::beep(440,500)
     [console]::beep(440,500)
@@ -20,4 +20,4 @@ function Start-StrikeBack
     [console]::beep(440,1000)
 }
 
-1..2 | % {Start-StrikeBack}
+1..2 | % {Start-Invasion}

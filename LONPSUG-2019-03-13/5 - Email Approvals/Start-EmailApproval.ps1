@@ -49,6 +49,7 @@ function Search-Inbox
     return $jobResults
 }
 
+# Search for emails
 $params = @{
     "Subject"   = "Train"
     "Sender"    = "James"

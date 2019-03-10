@@ -66,7 +66,7 @@ resource "azurerm_network_interface" "networkInterface1" {
 }
 
 # Create VM
-resource "azurerm_virtual_machine" "vm1" {
+resource "azurerm_virtual_machine" "main" {
   name                  = "vm0001"
   location              = "${azurerm_resource_group.resourceGroup1.location}"
   resource_group_name   = "${azurerm_resource_group.resourceGroup1.name}"
@@ -105,12 +105,12 @@ resource "azurerm_managed_disk" "dataDisk1" {
   resource_group_name  = "${azurerm_resource_group.resourceGroup1.name}"
   storage_account_type = "Standard_LRS"
   create_option        = "Empty"
-  disk_size_gb         = 20
+  disk_size_gb         = 5
 }
 
 resource "azurerm_virtual_machine_data_disk_attachment" "attachDataDisk1" {
   managed_disk_id    = "${azurerm_managed_disk.dataDisk1.id}"
-  virtual_machine_id = "${azurerm_virtual_machine.vm1.id}"
+  virtual_machine_id = "${azurerm_virtual_machine.main.id}"
   lun                = "10"
   caching            = "ReadWrite"
 }

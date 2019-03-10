@@ -16,6 +16,5 @@ configuration TestFile {
     }
 }
 
-
 TestFile -OutputPath C:\temp
 Start-DscConfiguration -Path C:\temp -Wait -Verbose

@@ -4,7 +4,7 @@ $location = 'WestEurope'
 $storageType = 'Standard_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 20
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 5
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
