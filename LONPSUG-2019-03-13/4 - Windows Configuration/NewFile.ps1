@@ -27,9 +27,10 @@ function New-TextFile
 }
 
 $params = @{
-    FilePath = "C:\temp\60"
+    FilePath = "C:\temp"
     FileName = "Test.txt"
     Contents = "Hello LONPSUG!"
 }
 
+New-Item -ItemType Directory -Path C:\temp
 New-TextFile @params
