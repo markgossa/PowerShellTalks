@@ -15,7 +15,7 @@ function New-TextFile
         $Contents
     )
 
-    if (-Not (Get-ChildItem -Path $FilePath -ErrorAction SilentlyContinue))
+    if (-Not (Get-ChildItem -Path "$FilePath\$FileName" -ErrorAction SilentlyContinue))
     {
         New-Item -ItemType File -Path $FilePath -Name $FileName
     }

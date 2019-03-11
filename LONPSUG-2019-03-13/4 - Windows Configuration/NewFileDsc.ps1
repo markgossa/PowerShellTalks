@@ -9,7 +9,6 @@ configuration TestFile {
             Ensure = "Present" 
             Type = "File"
             Force = $True
-            Recurse = $True
             DestinationPath = 'C:\temp\TestDsc.txt'
             Contents = "Hi LONPSUG!"
         }
