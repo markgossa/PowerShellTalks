@@ -60,6 +60,8 @@ $emails = Search-Inbox @params -Verbose
 $emails.Body
 
 # Send email with Outlook
+Add-Type -assembly "Microsoft.Office.Interop.Outlook"
+$Outlook = New-Object -comobject Outlook.Application
 $Mail = $Outlook.CreateItem(0)
 $Mail.To = "lonpsug@powershell.com"
 $Mail.Subject = "Hi LONPSUG!"
